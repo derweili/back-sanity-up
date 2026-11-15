@@ -1,0 +1,16 @@
+# Template unit: one instance per config file in /etc/sanity-backup/<name>.env
+#   systemctl enable --now sanity-backup@client-a.timer
+[Unit]
+Description=Sanity backup (%i)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/opt/back-sanity-up/sanity-backup.sh /etc/sanity-backup/%i.env
+# Run as an unprivileged user that can read the config file
+User=sanity-backup
+Group=sanity-backup
+Nice=10
+IOSchedulingClass=idle
+TimeoutStartSec=6h

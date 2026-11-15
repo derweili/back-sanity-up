@@ -1,0 +1,7 @@
+# /etc/cron.d/sanity-backup — one line per project/config file.
+# Minute Hour Day Month Weekday User Command
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+15 3 * * * sanity-backup /opt/back-sanity-up/sanity-backup.sh /etc/sanity-backup/client-a.env
+45 3 * * * sanity-backup /opt/back-sanity-up/sanity-backup.sh /etc/sanity-backup/client-b.env

@@ -1,0 +1,12 @@
+[Unit]
+Description=Daily Sanity backup (%i)
+
+[Timer]
+OnCalendar=*-*-* 03:15:00
+# Spread multiple instances so they don't all start at the same second
+RandomizedDelaySec=15min
+# Catch up on a missed run if the server was off at 03:15
+Persistent=true
+
+[Install]
+WantedBy=timers.target

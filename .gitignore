@@ -1,0 +1,5 @@
+# Real configs contain secrets — only the example is committed
+*.env
+!*.env.example
+.env
+*.tar.gz
